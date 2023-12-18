@@ -1,6 +1,8 @@
 import {AfterViewInit, Component, ViewChild} from '@angular/core';
 import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
+import {MatSort, Sort} from '@angular/material/sort';
+
 import { ApiService } from '../service/api.service';
 
 @Component({
@@ -13,12 +15,13 @@ export class CoinPageComponent implements AfterViewInit{
   displayedColumns: string[] = ['symbol', 'current_price', 'price_change_percentage_24h', 'market_cap'];
   dataSource!: MatTableDataSource<any>;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
 
   constructor(private api : ApiService){}
 
-
   ngAfterViewInit(): void {
     this.getAllCoins();
+    
   }
 
   getAllCoins(){
@@ -26,6 +29,7 @@ export class CoinPageComponent implements AfterViewInit{
     .subscribe(res=>{
       this.dataSource = new MatTableDataSource(res);
       this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
 
     })
   }
