@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ContentComponent } from './content/content.component';
 import { CoinPageComponent } from './coin-page/coin-page.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ContentComponent,
-    CoinPageComponent
+    CoinPageComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
