@@ -2,7 +2,7 @@
     <div class="text-center text-white text-xl font-semibold "><a href=""> <span class="text-yellow-400">Koin</span><span class="text-green-500">Tracker</span></a></div>
     <ul class="flex items-center">
         <li class="m-3 text-center text-white "><a href="">HOME</a></li>
-        <select  class="bg-inherit text-white" name="currency" id="currency">
+        <select (ngModelChange)="currencyValue($event)" [(ngModel)]="selectedCurrency" class="bg-inherit text-white" name="currency" id="currency">
             <option class="bg-black  text-white" selected value="cad">CAD</option>
             <option class="bg-black  text-white" value="usd">USD</option>
             <option class="bg-black  text-white" value="inr">INR</option>
