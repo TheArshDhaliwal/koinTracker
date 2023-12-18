@@ -13,22 +13,15 @@ export class ContentComponent implements OnInit{
   
   ngOnInit(): void {
     this.getHeaderCoins();
-    this.getAllCoins();
   }
 
   getHeaderCoins(){
     this.api.getTrendingCoins("CAD")
     .subscribe(res=>{
-      console.log(res);
       this.headerCoins = res;
     })
   }
 
-  getAllCoins(){
-    this.api.getCoins("CAD")
-    .subscribe(res=>{
-      console.log(res);
-    })
-  }
+  
 
 }
