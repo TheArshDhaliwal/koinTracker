@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
+  selectedCurrency: string = "cad";
+
+  constructor(){}
+
+  currencyValue(event:string){
+    console.log(event);
+  }
+
 }
