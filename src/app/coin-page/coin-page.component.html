@@ -1,39 +1,35 @@
-<div class="mat-elevation-z8">
-    <table mat-table [dataSource]="dataSource" matSort >
-  
-      <!-- Symbol Column -->
-      <ng-container matColumnDef="symbol">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Currency </th>
-        <td mat-cell *matCellDef="let element"> {{element.symbol | uppercase}} </td>
-      </ng-container>
-  
-      <!-- Current Price Column -->
-      <ng-container matColumnDef="current_price">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Current Price </th>
-        <td mat-cell *matCellDef="let element"> {{element.current_price | currency:"CAD"}} </td>
-      </ng-container>
-  
-      <!-- Price Change % 24h Column -->
-      <ng-container matColumnDef="price_change_percentage_24h">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> 24h Change Percentage </th>
-        <td mat-cell *matCellDef="let element"> {{element.price_change_percentage_24h}}%</td>
-      </ng-container>
-  
-      <!-- Market Cap Column -->
-      <ng-container matColumnDef="market_cap">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Market Cap </th>
-        <td mat-cell *matCellDef="let element"> {{element.market_cap | currency:"CAD"}} </td>
-      </ng-container>
-  
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
-  
-    <mat-paginator [length]="100"
-              [pageSize]="5"
-              [pageSizeOptions]="[5, 10, 25, 100]"
-              aria-label="Select page">
-</mat-paginator>
+<div class="mat-elevation-z8 overflow-x-auto">
+  <table class="min-w-full border border-gray-200 divide-y divide-gray-200" mat-table [dataSource]="dataSource" matSort>
 
-  </div>
-  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="symbol">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="px-4 py-2">Currency</th>
+      <td mat-cell *matCellDef="let element" class="px-4 py-2">{{element.symbol | uppercase}}</td>
+    </ng-container>
+
+    <!-- Current Price Column -->
+    <ng-container matColumnDef="current_price">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="px-4 py-2">Current Price</th>
+      <td mat-cell *matCellDef="let element" class="px-4 py-2">{{element.current_price | currency:"CAD"}}</td>
+    </ng-container>
+
+    <!-- Price Change % 24h Column -->
+    <ng-container matColumnDef="price_change_percentage_24h">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="px-4 py-2">24h Change Percentage</th>
+      <td mat-cell *matCellDef="let element" class="px-4 py-2">{{element.price_change_percentage_24h}}%</td>
+    </ng-container>
+
+    <!-- Market Cap Column -->
+    <ng-container matColumnDef="market_cap">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header class="px-4 py-2">Market Cap</th>
+      <td mat-cell *matCellDef="let element" class="px-4 py-2">{{element.market_cap | currency:"CAD"}}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [length]="100" [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 100]"
+  aria-label="Select page"></mat-paginator>
+
+</div>
